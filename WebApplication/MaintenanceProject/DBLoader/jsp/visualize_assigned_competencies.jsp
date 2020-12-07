@@ -5,4 +5,6 @@
 	int id = Integer.valueOf(request.getParameter("id_procedure"));
     String json = dbl.visualizeProcedureCompetencies(dbc, id);
     out.println(json);
+	response.setContentType("application/json");
+    response.setHeader("Access-Control-Allow-Origin", "*");
 %>

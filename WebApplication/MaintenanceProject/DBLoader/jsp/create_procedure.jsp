@@ -4,5 +4,7 @@
 	DBLoaderJavaServiceDataProvider dbl = new DBLoaderJavaServiceDataProvider();
 	String procedure = request.getParameter("smp");
 	String json = dbl.createProcedure(dbc,procedure);
+	response.setContentType("application/json");
+    response.setHeader("Access-Control-Allow-Origin", "*");
 %>
 <%=json%>

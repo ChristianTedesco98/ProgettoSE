@@ -5,5 +5,7 @@
     SystemAdministratorDataProvider sa_service = new SystemAdministratorDataProvider();
     String json = request.getParameter("modifyJson");
     String json = sa_service.modifyCompetence(db, json);
+    response.setContentType("application/json");
+    response.setHeader("Access-Control-Allow-Origin", "*");
 %>
 <%=json%>

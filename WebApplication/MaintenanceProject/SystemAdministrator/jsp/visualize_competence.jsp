@@ -7,5 +7,7 @@
     String json = "[{\"id_competency\":\"{ID_COMPETENCE}\"}]";
     json = json.replace("{ID_COMPETENCE}", id);
     json = sa_service.visualizeCompetence(db, json);
+    response.setContentType("application/json");
+    response.setHeader("Access-Control-Allow-Origin", "*");
     out.println(json);
 %>

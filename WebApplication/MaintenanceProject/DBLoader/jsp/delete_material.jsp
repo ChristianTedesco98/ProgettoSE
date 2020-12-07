@@ -2,8 +2,8 @@
 <%
 	DbConnection dbc = new DbConnection();
 	DBLoaderJavaServiceDataProvider dbl = new DBLoaderJavaServiceDataProvider();
-	int id_site = Integer.valueOf(request.getParameter("id_site"));
-	String json = dbl.deleteSite(dbc,id_site);
+	int id = Integer.valueOf(request.getParameter("id_material"));
+	String json = dbl.deleteMaterial(dbc, id);	
 	response.setContentType("application/json");
     response.setHeader("Access-Control-Allow-Origin", "*");
 %>

@@ -5,5 +5,7 @@
     SystemAdministratorDataProvider sa_service = new SystemAdministratorDataProvider();
     String json = "[{\"name_competency\":\"testing\"}]";
     String json = sa_service.createCompetence(db, json);
+    response.setContentType("application/json");
+    response.setHeader("Access-Control-Allow-Origin", "*");
 %>
 <%=json%>

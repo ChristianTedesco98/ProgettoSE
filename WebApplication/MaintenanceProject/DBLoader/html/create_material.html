@@ -4,55 +4,53 @@
 <head>
 	<meta charset = "UTF-8">
 	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' >
-	<title> Procedure List</title>
+	<title>Create material</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 
 <body style="touch-action:none; color: white; background-image: url('../imgs/background.jpg'); background-size: 100%; font-family: Tahoma;">
-    <div class="card" style = "margin: auto; margin-top: 10%; width:900px; border-radius: 5px; border-color: grey;">
-        <div class="card-body" style="background-color: #f0f4f5; padding:3%; color: white; border-radius: 5px;">
-           <div class = "row" align="center">
-                <div class="col-4">
-                </div>
-                <div class="col-4">
-                    <h1 style="color: black; font-size: 35px;"><img src="../imgs/procedure.png" style="width:30px; height:30px;"/> Procedures</h1>
-                </div>
-                <div class="col-4">
-                </div>
+	<div class="card" style = "margin: auto; margin-top: 10%; width:900px; border-radius: 5px; border-color: grey;">
+		<div class="card-body" style="background-color: #f0f4f5; padding:3%; color: black; border-radius: 5px;">
+			<div class = "row" align="center">
+                        <div class="col-1">
+                            <button type="button" id="backButton" class="btn btn-dark" style="margin-right:60px; width:85px; height: 40px;"><b>&#129120;</b> Back</button>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                        <div class="col-4">
+                        </div>
+                        <div class="col-4">
+                        </div>
             </div>
-            <div class = "row">
-                <div class="col-4">
-                    <button type="button" id="homeButton" class="btn btn-dark" style="margin-right:60px; width:90px; height: 45px;"><span style=" color: transparent;
-                        text-shadow: 0 0 0 white; font-size: 12px;">&#127968;</span> Home
-                    </button>
-                </div>
-                <div class="col-5">
-                </div>
-                <div class="col-3">
-                    <button type="button" id="createButton" class="btn btn-dark" style="margin-left:30px; width:170px; height: 45px;"><b style="font-size: 20px;">+</b> Create procedure</button>
-                </div>
-            </div>
+			<div class = "row" align="center">
+				<div class="col-4">
+				</div>
+				<div class="col-4">
+					<h1 style="color: black; font-size: 35px;">Create Material</h1>
+				</div>
+				<div class="col-4">
+				</div>
+			</div>
 
 <hr>
 
-<table class="table-hover table-striped" id="procedure-list" border="1" width="100%" style="border-color: black; border-width: 2px; color: black; text-align: center;">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>SMP</th>
-        <th>	</th>
-    </tr>
-    <template id="procedures-list-row-template">
-        <tr>
-            <td>{Id}</td>
-            <td>{SMP}</td>
-            <td>{Actions}</td>
-        </tr>
-    </template>
-    </thead>
-    <tbody id="procedures-list-rows">
-    </tbody>
-</table>
+<form id="form">
+    <div class="form-group row">
+        <label for="inputMaterial" class="col-sm-2 col-form-label">Name Material</label>
+            <div class="input-group col-10">
+                        <div class="input-group-addon" style="width: 40px; color: #63605f;  background-color: #b3acab;text-align: center; border-radius: 3px; margin-right: -1px;">
+                          <i class="fas fa-tools" style="margin-top: 10px;"></i>
+                        </div>
+                <input type="" class="form-control" id="inputMaterial" placeholder="Name Material">
+            </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-12" align="center">
+            <button id="createButton" type="button" class="btn btn-success btn-lg" style="width: 180px;">Create</button>
+        </div>
+    </div>
+</form>
 <div class="modal fade" id="modal-ajax-response" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -63,7 +61,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <span id="ajax-response"style="color:black;"></span>
+                            <span id="ajax-response"></span>
                         </div>
                         <div class="modal-footer">
                             <input type="hidden" id="redirect-to-home" value="1">
@@ -80,12 +78,13 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
-<script src = "../js/visualize_procedures.js"></script>
+<script src = "../js/create_material.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+
 </body>
 </html>

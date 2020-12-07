@@ -8,6 +8,8 @@ function initBrowsing() {
 
     document.getElementById("procedureButton").onclick=goToProceduresPage;
 
+    document.getElementById("materialButton").onclick=goToMaterialsPage;
+
 	document.getElementById("backButton").onclick=goToHomePage;
 
 }
@@ -18,6 +20,10 @@ function goToSitesPage() {
 
 function goToTypologiesPage() {
     window.location.pathname = "../MaintenanceProject/DBLoader/html/visualize_typologies.html";
+}
+
+function goToMaterialsPage() {
+    window.location.pathname = "../MaintenanceProject/DBLoader/html/visualize_materials.html";
 }
 
 function goToProceduresPage() {

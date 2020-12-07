@@ -6,5 +6,7 @@
     int id_competency = Integer.valueOf(request.getParameter("id_competency"));
 	String name_competency = request.getParameter("name_competency");
     String json = sa_service.modifyCompetency(db, id_competency, name_competency);
+    response.setContentType("application/json");
+    response.setHeader("Access-Control-Allow-Origin", "*");
 %>
 <%=json%>

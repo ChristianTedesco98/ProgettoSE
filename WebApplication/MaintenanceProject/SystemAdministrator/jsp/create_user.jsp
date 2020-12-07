@@ -12,5 +12,7 @@
     String role = request.getParameter("role");
     String username = request.getParameter("username");
     String json = sa_service.createUser(db, first_name, surname, birth_date, password, cell_num, email, role, username);
+    response.setContentType("application/json");
+    response.setHeader("Access-Control-Allow-Origin", "*");
 %>
 <%=json%>

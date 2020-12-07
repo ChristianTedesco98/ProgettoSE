@@ -480,4 +480,113 @@ public class DBLoaderJavaServiceDataProvider {
         return responseJson;
 
     }
+
+    public String visualizeMaterials(DbConnection dbc) {
+        String materialsJSONFormat = "{\"id_material\":\"{ID_MATERIAL}\",\"name_material\":\"{NAME_MATERIAL}\"}";
+        String materialsJSONResult = "";
+        String JSONRow = "";
+        this.con = dbc.connect();
+
+        try {
+            Statement stmt = this.con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet rs;
+            rs = stmt.executeQuery("select * from materials order by id_material");
+
+            if (!rs.next())
+                return "";
+            else
+                rs.beforeFirst();
+
+            while (rs.next()) {
+                JSONRow = materialsJSONFormat.replace("{ID_MATERIAL}", rs.getString(1));
+                JSONRow = JSONRow.replace("{NAME_MATERIAL}", Util.utf8Encode(rs.getString(2)));
+                materialsJSONResult = materialsJSONResult + JSONRow + ",";
+            }
+            this.con.close();
+
+        } catch (SQLException throwables) {
+            System.out.println(throwables.getMessage());
+        }
+
+        return "[" + Util.removeLastChar(materialsJSONResult) + "]";
+    }
+
+
+    public String visualizeMaterial(DbConnection dbc, int id_material) {
+        String materialsJSONFormat = "{\"id_material\":\"{ID_MATERIAL}\",\"name_material\":\"{NAME_MATERIAL}\"}";
+        String materialsJSONResult = "";
+        String JSONRow = "";
+        this.con = dbc.connect();
+
+        try {
+            Statement stmt = this.con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+
+            ResultSet rs;
+            rs = stmt.executeQuery("select * from materials where id_material='" + id_material + "'");
+
+            if (!rs.next())
+                return "";
+            else
+                rs.beforeFirst();
+
+            while (rs.next()) {
+                JSONRow = materialsJSONFormat.replace("{ID_MATERIAL}", rs.getString(1));
+                JSONRow = JSONRow.replace("{NAME_MATERIAL}", Util.utf8Encode(rs.getString(2)));
+                materialsJSONResult = materialsJSONResult + JSONRow + ',';
+            }
+
+            this.con.close();
+
+        } catch (SQLException throwables) {
+            System.out.println(throwables.getMessage());
+        }
+
+        return "[" + Util.removeLastChar(materialsJSONResult) + "]";
+    }
+
+
+    public String createMaterial(DbConnection dbc, String name_material) {
+        this.con = dbc.connect();
+        String responseJSON = "[{\"err_code\":\"{ERR_CODE}\", \"msg\":\"{MSG}\"}]";
+
+        try {
+            Statement stmt = this.con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+
+            int checkInsert = stmt.executeUpdate("insert into materials(name_material) values ('" + name_material + "')");
+            responseJSON = responseJSON.replace("{ERR_CODE}", "0");
+            responseJSON = responseJSON.replace("{MSG}", "Material created correctly!");
+            this.con.close();
+
+        } catch (SQLException throwables) {
+            String msg = throwables.getMessage().replace('\"', '*');
+            msg = msg.replace('\n', ' ');
+            responseJSON = responseJSON.replace("{ERR_CODE}", "1");
+            responseJSON = responseJSON.replace("{MSG}", msg);
+        }
+
+        return responseJSON;
+
+    }
+
+    public String deleteMaterial(DbConnection dbc, int id_material) {
+        this.con = dbc.connect();
+        String responseJSON = "[{\"err_code\":\"{ERR_CODE}\", \"msg\":\"{MSG}\"}]";
+
+        try {
+            Statement stmt = this.con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            int checkDelete = stmt.executeUpdate("delete from materials where id_material='" + id_material + "'");
+            responseJSON = responseJSON.replace("{ERR_CODE}", "0");
+            responseJSON = responseJSON.replace("{MSG}", "Material deleted correctly!");
+            this.con.close();
+
+        } catch (SQLException throwables) {
+            String msg = throwables.getMessage().replace('\"', '*');
+            msg = msg.replace('\n', ' ');
+            responseJSON = responseJSON.replace("{ERR_CODE}", "1");
+            responseJSON = responseJSON.replace("{MSG}", msg);
+        }
+
+        return responseJSON;
+
+    }
 }
