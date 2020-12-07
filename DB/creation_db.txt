@@ -5,7 +5,7 @@
 -- Dumped from database version 12.2
 -- Dumped by pg_dump version 12.2
 
--- Started on 2020-11-26 10:17:37
+-- Started on 2020-12-07 18:59:42
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -23,7 +23,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 202 (class 1259 OID 35480)
+-- TOC entry 202 (class 1259 OID 37603)
 -- Name: accesses; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -37,7 +37,7 @@ CREATE TABLE public.accesses (
 ALTER TABLE public.accesses OWNER TO postgres;
 
 --
--- TOC entry 203 (class 1259 OID 35483)
+-- TOC entry 203 (class 1259 OID 37606)
 -- Name: activity_materials; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -50,7 +50,7 @@ CREATE TABLE public.activity_materials (
 ALTER TABLE public.activity_materials OWNER TO postgres;
 
 --
--- TOC entry 204 (class 1259 OID 35486)
+-- TOC entry 204 (class 1259 OID 37609)
 -- Name: activity_materials_id_activity_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -66,7 +66,7 @@ CREATE SEQUENCE public.activity_materials_id_activity_seq
 ALTER TABLE public.activity_materials_id_activity_seq OWNER TO postgres;
 
 --
--- TOC entry 2971 (class 0 OID 0)
+-- TOC entry 2970 (class 0 OID 0)
 -- Dependencies: 204
 -- Name: activity_materials_id_activity_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -75,7 +75,7 @@ ALTER SEQUENCE public.activity_materials_id_activity_seq OWNED BY public.activit
 
 
 --
--- TOC entry 205 (class 1259 OID 35488)
+-- TOC entry 205 (class 1259 OID 37611)
 -- Name: activity_materials_id_material_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -91,7 +91,7 @@ CREATE SEQUENCE public.activity_materials_id_material_seq
 ALTER TABLE public.activity_materials_id_material_seq OWNER TO postgres;
 
 --
--- TOC entry 2972 (class 0 OID 0)
+-- TOC entry 2971 (class 0 OID 0)
 -- Dependencies: 205
 -- Name: activity_materials_id_material_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -100,7 +100,7 @@ ALTER SEQUENCE public.activity_materials_id_material_seq OWNED BY public.activit
 
 
 --
--- TOC entry 206 (class 1259 OID 35490)
+-- TOC entry 206 (class 1259 OID 37613)
 -- Name: competencies; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -113,7 +113,7 @@ CREATE TABLE public.competencies (
 ALTER TABLE public.competencies OWNER TO postgres;
 
 --
--- TOC entry 207 (class 1259 OID 35496)
+-- TOC entry 207 (class 1259 OID 37619)
 -- Name: competencies_id_competency_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -129,7 +129,7 @@ CREATE SEQUENCE public.competencies_id_competency_seq
 ALTER TABLE public.competencies_id_competency_seq OWNER TO postgres;
 
 --
--- TOC entry 2973 (class 0 OID 0)
+-- TOC entry 2972 (class 0 OID 0)
 -- Dependencies: 207
 -- Name: competencies_id_competency_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -138,7 +138,7 @@ ALTER SEQUENCE public.competencies_id_competency_seq OWNED BY public.competencie
 
 
 --
--- TOC entry 208 (class 1259 OID 35498)
+-- TOC entry 208 (class 1259 OID 37621)
 -- Name: interventions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -152,7 +152,7 @@ CREATE TABLE public.interventions (
 ALTER TABLE public.interventions OWNER TO postgres;
 
 --
--- TOC entry 209 (class 1259 OID 35501)
+-- TOC entry 209 (class 1259 OID 37624)
 -- Name: maintainer_skills; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -165,7 +165,7 @@ CREATE TABLE public.maintainer_skills (
 ALTER TABLE public.maintainer_skills OWNER TO postgres;
 
 --
--- TOC entry 210 (class 1259 OID 35504)
+-- TOC entry 210 (class 1259 OID 37627)
 -- Name: maintaner_skills_id_competency_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -181,7 +181,7 @@ CREATE SEQUENCE public.maintaner_skills_id_competency_seq
 ALTER TABLE public.maintaner_skills_id_competency_seq OWNER TO postgres;
 
 --
--- TOC entry 2974 (class 0 OID 0)
+-- TOC entry 2973 (class 0 OID 0)
 -- Dependencies: 210
 -- Name: maintaner_skills_id_competency_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -190,7 +190,7 @@ ALTER SEQUENCE public.maintaner_skills_id_competency_seq OWNED BY public.maintai
 
 
 --
--- TOC entry 211 (class 1259 OID 35506)
+-- TOC entry 211 (class 1259 OID 37629)
 -- Name: maintenance_activities; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -211,7 +211,7 @@ CREATE TABLE public.maintenance_activities (
 ALTER TABLE public.maintenance_activities OWNER TO postgres;
 
 --
--- TOC entry 212 (class 1259 OID 35512)
+-- TOC entry 212 (class 1259 OID 37635)
 -- Name: maintenance_activities_id_activity_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -227,7 +227,7 @@ CREATE SEQUENCE public.maintenance_activities_id_activity_seq
 ALTER TABLE public.maintenance_activities_id_activity_seq OWNER TO postgres;
 
 --
--- TOC entry 2975 (class 0 OID 0)
+-- TOC entry 2974 (class 0 OID 0)
 -- Dependencies: 212
 -- Name: maintenance_activities_id_activity_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -236,7 +236,7 @@ ALTER SEQUENCE public.maintenance_activities_id_activity_seq OWNED BY public.mai
 
 
 --
--- TOC entry 213 (class 1259 OID 35514)
+-- TOC entry 213 (class 1259 OID 37637)
 -- Name: maintenance_activities_id_site_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -252,7 +252,7 @@ CREATE SEQUENCE public.maintenance_activities_id_site_seq
 ALTER TABLE public.maintenance_activities_id_site_seq OWNER TO postgres;
 
 --
--- TOC entry 2976 (class 0 OID 0)
+-- TOC entry 2975 (class 0 OID 0)
 -- Dependencies: 213
 -- Name: maintenance_activities_id_site_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -261,7 +261,7 @@ ALTER SEQUENCE public.maintenance_activities_id_site_seq OWNED BY public.mainten
 
 
 --
--- TOC entry 214 (class 1259 OID 35516)
+-- TOC entry 214 (class 1259 OID 37639)
 -- Name: maintenance_activities_id_typology_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -277,7 +277,7 @@ CREATE SEQUENCE public.maintenance_activities_id_typology_seq
 ALTER TABLE public.maintenance_activities_id_typology_seq OWNER TO postgres;
 
 --
--- TOC entry 2977 (class 0 OID 0)
+-- TOC entry 2976 (class 0 OID 0)
 -- Dependencies: 214
 -- Name: maintenance_activities_id_typology_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -286,7 +286,7 @@ ALTER SEQUENCE public.maintenance_activities_id_typology_seq OWNED BY public.mai
 
 
 --
--- TOC entry 215 (class 1259 OID 35518)
+-- TOC entry 215 (class 1259 OID 37641)
 -- Name: maintenance_procedures; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -298,6 +298,10 @@ CREATE TABLE public.maintenance_procedures (
 
 ALTER TABLE public.maintenance_procedures OWNER TO postgres;
 
+--
+-- TOC entry 216 (class 1259 OID 37647)
+-- Name: maintenance_procedures_id_procedure_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
 
 CREATE SEQUENCE public.maintenance_procedures_id_procedure_seq
     AS integer
@@ -310,10 +314,17 @@ CREATE SEQUENCE public.maintenance_procedures_id_procedure_seq
 
 ALTER TABLE public.maintenance_procedures_id_procedure_seq OWNER TO postgres;
 
+--
+-- TOC entry 2977 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: maintenance_procedures_id_procedure_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
 ALTER SEQUENCE public.maintenance_procedures_id_procedure_seq OWNED BY public.maintenance_procedures.id_procedure;
 
+
 --
--- TOC entry 216 (class 1259 OID 35524)
+-- TOC entry 217 (class 1259 OID 37649)
 -- Name: materials; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -326,7 +337,7 @@ CREATE TABLE public.materials (
 ALTER TABLE public.materials OWNER TO postgres;
 
 --
--- TOC entry 217 (class 1259 OID 35530)
+-- TOC entry 218 (class 1259 OID 37655)
 -- Name: materials_id_material_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -343,7 +354,7 @@ ALTER TABLE public.materials_id_material_seq OWNER TO postgres;
 
 --
 -- TOC entry 2978 (class 0 OID 0)
--- Dependencies: 217
+-- Dependencies: 218
 -- Name: materials_id_material_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -351,7 +362,7 @@ ALTER SEQUENCE public.materials_id_material_seq OWNED BY public.materials.id_mat
 
 
 --
--- TOC entry 218 (class 1259 OID 35532)
+-- TOC entry 219 (class 1259 OID 37657)
 -- Name: procedure_skills; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -364,7 +375,7 @@ CREATE TABLE public.procedure_skills (
 ALTER TABLE public.procedure_skills OWNER TO postgres;
 
 --
--- TOC entry 219 (class 1259 OID 35535)
+-- TOC entry 220 (class 1259 OID 37660)
 -- Name: procedure_skills_id_competency_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -381,7 +392,7 @@ ALTER TABLE public.procedure_skills_id_competency_seq OWNER TO postgres;
 
 --
 -- TOC entry 2979 (class 0 OID 0)
--- Dependencies: 219
+-- Dependencies: 220
 -- Name: procedure_skills_id_competency_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -389,7 +400,7 @@ ALTER SEQUENCE public.procedure_skills_id_competency_seq OWNED BY public.procedu
 
 
 --
--- TOC entry 220 (class 1259 OID 35537)
+-- TOC entry 221 (class 1259 OID 37662)
 -- Name: sites; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -403,7 +414,7 @@ CREATE TABLE public.sites (
 ALTER TABLE public.sites OWNER TO postgres;
 
 --
--- TOC entry 221 (class 1259 OID 35543)
+-- TOC entry 222 (class 1259 OID 37668)
 -- Name: sites_id_site_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -420,7 +431,7 @@ ALTER TABLE public.sites_id_site_seq OWNER TO postgres;
 
 --
 -- TOC entry 2980 (class 0 OID 0)
--- Dependencies: 221
+-- Dependencies: 222
 -- Name: sites_id_site_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -428,7 +439,7 @@ ALTER SEQUENCE public.sites_id_site_seq OWNED BY public.sites.id_site;
 
 
 --
--- TOC entry 222 (class 1259 OID 35545)
+-- TOC entry 223 (class 1259 OID 37670)
 -- Name: typologies; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -441,7 +452,7 @@ CREATE TABLE public.typologies (
 ALTER TABLE public.typologies OWNER TO postgres;
 
 --
--- TOC entry 223 (class 1259 OID 35551)
+-- TOC entry 224 (class 1259 OID 37676)
 -- Name: typologies_id_typology_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -458,7 +469,7 @@ ALTER TABLE public.typologies_id_typology_seq OWNER TO postgres;
 
 --
 -- TOC entry 2981 (class 0 OID 0)
--- Dependencies: 223
+-- Dependencies: 224
 -- Name: typologies_id_typology_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -466,7 +477,7 @@ ALTER SEQUENCE public.typologies_id_typology_seq OWNED BY public.typologies.id_t
 
 
 --
--- TOC entry 224 (class 1259 OID 35553)
+-- TOC entry 225 (class 1259 OID 37678)
 -- Name: users; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -488,8 +499,8 @@ CREATE TABLE public.users (
 ALTER TABLE public.users OWNER TO postgres;
 
 --
--- TOC entry 225 (class 1259 OID 35561)
--- Name: workspace_notes; Type: TABLE; Schema: public; Owner: postgres
+-- TOC entry 226 (class 1259 OID 37686)
+-- Name: users_id_user_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.users_id_user_seq
@@ -503,49 +514,33 @@ CREATE SEQUENCE public.users_id_user_seq
 
 ALTER TABLE public.users_id_user_seq OWNER TO postgres;
 
-ALTER SEQUENCE public.users_id_user_seq OWNED BY public.users.id_user;
-
-
-
-
-CREATE TABLE public.workspace_notes (
-    id_note integer NOT NULL,
-    content character varying,
-    id_activity integer NOT NULL,
-    id_site integer NOT NULL
-);
-
-
-ALTER TABLE public.workspace_notes OWNER TO postgres;
-
---
--- TOC entry 226 (class 1259 OID 35567)
--- Name: workspace_notes_id_activity_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE public.workspace_notes_id_activity_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.workspace_notes_id_activity_seq OWNER TO postgres;
-
 --
 -- TOC entry 2982 (class 0 OID 0)
 -- Dependencies: 226
--- Name: workspace_notes_id_activity_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: users_id_user_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.workspace_notes_id_activity_seq OWNED BY public.workspace_notes.id_activity;
+ALTER SEQUENCE public.users_id_user_seq OWNED BY public.users.id_user;
 
 
 --
--- TOC entry 227 (class 1259 OID 35569)
--- Name: workspace_notes_id_note_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- TOC entry 228 (class 1259 OID 37842)
+-- Name: workspace_notes; Type: TABLE; Schema: public; Owner: se_project
+--
+
+CREATE TABLE public.workspace_notes (
+    id_note integer NOT NULL,
+    description character varying,
+    id_activity integer,
+    id_site integer
+);
+
+
+ALTER TABLE public.workspace_notes OWNER TO se_project;
+
+--
+-- TOC entry 227 (class 1259 OID 37840)
+-- Name: workspace_notes_id_note_seq; Type: SEQUENCE; Schema: public; Owner: se_project
 --
 
 CREATE SEQUENCE public.workspace_notes_id_note_seq
@@ -557,44 +552,19 @@ CREATE SEQUENCE public.workspace_notes_id_note_seq
     CACHE 1;
 
 
-ALTER TABLE public.workspace_notes_id_note_seq OWNER TO postgres;
+ALTER TABLE public.workspace_notes_id_note_seq OWNER TO se_project;
 
 --
 -- TOC entry 2983 (class 0 OID 0)
 -- Dependencies: 227
--- Name: workspace_notes_id_note_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: workspace_notes_id_note_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: se_project
 --
 
 ALTER SEQUENCE public.workspace_notes_id_note_seq OWNED BY public.workspace_notes.id_note;
 
 
 --
--- TOC entry 228 (class 1259 OID 35571)
--- Name: workspace_notes_id_site_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE public.workspace_notes_id_site_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.workspace_notes_id_site_seq OWNER TO postgres;
-
---
--- TOC entry 2984 (class 0 OID 0)
--- Dependencies: 228
--- Name: workspace_notes_id_site_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE public.workspace_notes_id_site_seq OWNED BY public.workspace_notes.id_site;
-
-
---
--- TOC entry 2769 (class 2604 OID 35573)
+-- TOC entry 2769 (class 2604 OID 37700)
 -- Name: activity_materials id_activity; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -602,7 +572,7 @@ ALTER TABLE ONLY public.activity_materials ALTER COLUMN id_activity SET DEFAULT 
 
 
 --
--- TOC entry 2770 (class 2604 OID 35574)
+-- TOC entry 2770 (class 2604 OID 37701)
 -- Name: activity_materials id_material; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -610,7 +580,7 @@ ALTER TABLE ONLY public.activity_materials ALTER COLUMN id_material SET DEFAULT 
 
 
 --
--- TOC entry 2771 (class 2604 OID 35575)
+-- TOC entry 2771 (class 2604 OID 37702)
 -- Name: competencies id_competency; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -618,7 +588,7 @@ ALTER TABLE ONLY public.competencies ALTER COLUMN id_competency SET DEFAULT next
 
 
 --
--- TOC entry 2772 (class 2604 OID 35576)
+-- TOC entry 2772 (class 2604 OID 37703)
 -- Name: maintainer_skills id_competency; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -626,7 +596,7 @@ ALTER TABLE ONLY public.maintainer_skills ALTER COLUMN id_competency SET DEFAULT
 
 
 --
--- TOC entry 2773 (class 2604 OID 35577)
+-- TOC entry 2773 (class 2604 OID 37704)
 -- Name: maintenance_activities id_activity; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -634,7 +604,7 @@ ALTER TABLE ONLY public.maintenance_activities ALTER COLUMN id_activity SET DEFA
 
 
 --
--- TOC entry 2774 (class 2604 OID 35578)
+-- TOC entry 2774 (class 2604 OID 37705)
 -- Name: maintenance_activities id_typology; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -642,7 +612,7 @@ ALTER TABLE ONLY public.maintenance_activities ALTER COLUMN id_typology SET DEFA
 
 
 --
--- TOC entry 2775 (class 2604 OID 35579)
+-- TOC entry 2775 (class 2604 OID 37706)
 -- Name: maintenance_activities id_site; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -650,7 +620,15 @@ ALTER TABLE ONLY public.maintenance_activities ALTER COLUMN id_site SET DEFAULT 
 
 
 --
--- TOC entry 2776 (class 2604 OID 35580)
+-- TOC entry 2776 (class 2604 OID 37714)
+-- Name: maintenance_procedures id_procedure; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.maintenance_procedures ALTER COLUMN id_procedure SET DEFAULT nextval('public.maintenance_procedures_id_procedure_seq'::regclass);
+
+
+--
+-- TOC entry 2777 (class 2604 OID 37707)
 -- Name: materials id_material; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -658,7 +636,7 @@ ALTER TABLE ONLY public.materials ALTER COLUMN id_material SET DEFAULT nextval('
 
 
 --
--- TOC entry 2777 (class 2604 OID 35581)
+-- TOC entry 2778 (class 2604 OID 37708)
 -- Name: procedure_skills id_competency; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -666,7 +644,7 @@ ALTER TABLE ONLY public.procedure_skills ALTER COLUMN id_competency SET DEFAULT 
 
 
 --
--- TOC entry 2778 (class 2604 OID 35582)
+-- TOC entry 2779 (class 2604 OID 37709)
 -- Name: sites id_site; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -674,7 +652,7 @@ ALTER TABLE ONLY public.sites ALTER COLUMN id_site SET DEFAULT nextval('public.s
 
 
 --
--- TOC entry 2779 (class 2604 OID 35583)
+-- TOC entry 2780 (class 2604 OID 37710)
 -- Name: typologies id_typology; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -682,38 +660,23 @@ ALTER TABLE ONLY public.typologies ALTER COLUMN id_typology SET DEFAULT nextval(
 
 
 --
--- TOC entry 2783 (class 2604 OID 35584)
--- Name: workspace_notes id_note; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2781 (class 2604 OID 37713)
+-- Name: users id_user; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.users ALTER COLUMN id_user SET DEFAULT nextval('public.users_id_user_seq'::regclass);
+
+
+--
+-- TOC entry 2785 (class 2604 OID 37845)
+-- Name: workspace_notes id_note; Type: DEFAULT; Schema: public; Owner: se_project
 --
 
 ALTER TABLE ONLY public.workspace_notes ALTER COLUMN id_note SET DEFAULT nextval('public.workspace_notes_id_note_seq'::regclass);
 
 
 --
--- TOC entry 2784 (class 2604 OID 35585)
--- Name: workspace_notes id_activity; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.workspace_notes ALTER COLUMN id_activity SET DEFAULT nextval('public.workspace_notes_id_activity_seq'::regclass);
-
-
-
-
-ALTER TABLE ONLY public.users ALTER COLUMN id_user SET DEFAULT nextval('public.users_id_user_seq'::regclass);
-
-ALTER TABLE ONLY public.maintenance_procedures ALTER COLUMN id_procedure SET DEFAULT nextval('public.maintenance_procedures_id_procedure_seq'::regclass);
-
-
---
--- TOC entry 2785 (class 2604 OID 35586)
--- Name: workspace_notes id_site; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.workspace_notes ALTER COLUMN id_site SET DEFAULT nextval('public.workspace_notes_id_site_seq'::regclass);
-
-
---
--- TOC entry 2787 (class 2606 OID 35588)
+-- TOC entry 2788 (class 2606 OID 37717)
 -- Name: accesses accesses_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -722,7 +685,7 @@ ALTER TABLE ONLY public.accesses
 
 
 --
--- TOC entry 2789 (class 2606 OID 35590)
+-- TOC entry 2790 (class 2606 OID 37719)
 -- Name: activity_materials activity_materials_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -731,7 +694,7 @@ ALTER TABLE ONLY public.activity_materials
 
 
 --
--- TOC entry 2791 (class 2606 OID 35592)
+-- TOC entry 2792 (class 2606 OID 37721)
 -- Name: competencies competencies_name_competency_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -740,7 +703,7 @@ ALTER TABLE ONLY public.competencies
 
 
 --
--- TOC entry 2793 (class 2606 OID 35594)
+-- TOC entry 2794 (class 2606 OID 37723)
 -- Name: competencies competencies_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -749,7 +712,7 @@ ALTER TABLE ONLY public.competencies
 
 
 --
--- TOC entry 2795 (class 2606 OID 35596)
+-- TOC entry 2796 (class 2606 OID 37725)
 -- Name: interventions interventions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -758,7 +721,7 @@ ALTER TABLE ONLY public.interventions
 
 
 --
--- TOC entry 2797 (class 2606 OID 35598)
+-- TOC entry 2798 (class 2606 OID 37727)
 -- Name: maintainer_skills maintaner_skills_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -767,7 +730,7 @@ ALTER TABLE ONLY public.maintainer_skills
 
 
 --
--- TOC entry 2799 (class 2606 OID 35600)
+-- TOC entry 2800 (class 2606 OID 37729)
 -- Name: maintenance_activities maintenance_activities_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -776,7 +739,7 @@ ALTER TABLE ONLY public.maintenance_activities
 
 
 --
--- TOC entry 2801 (class 2606 OID 35602)
+-- TOC entry 2802 (class 2606 OID 37731)
 -- Name: maintenance_procedures maintenance_procedures_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -785,7 +748,7 @@ ALTER TABLE ONLY public.maintenance_procedures
 
 
 --
--- TOC entry 2803 (class 2606 OID 35604)
+-- TOC entry 2804 (class 2606 OID 37733)
 -- Name: materials materials_name_material_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -794,7 +757,7 @@ ALTER TABLE ONLY public.materials
 
 
 --
--- TOC entry 2805 (class 2606 OID 35606)
+-- TOC entry 2806 (class 2606 OID 37735)
 -- Name: materials materials_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -803,7 +766,7 @@ ALTER TABLE ONLY public.materials
 
 
 --
--- TOC entry 2807 (class 2606 OID 35608)
+-- TOC entry 2808 (class 2606 OID 37737)
 -- Name: procedure_skills procedure_skills_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -812,7 +775,7 @@ ALTER TABLE ONLY public.procedure_skills
 
 
 --
--- TOC entry 2809 (class 2606 OID 35610)
+-- TOC entry 2810 (class 2606 OID 37739)
 -- Name: sites sites_area_factory_site_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -821,7 +784,7 @@ ALTER TABLE ONLY public.sites
 
 
 --
--- TOC entry 2811 (class 2606 OID 35612)
+-- TOC entry 2812 (class 2606 OID 37741)
 -- Name: sites sites_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -830,7 +793,7 @@ ALTER TABLE ONLY public.sites
 
 
 --
--- TOC entry 2813 (class 2606 OID 35614)
+-- TOC entry 2814 (class 2606 OID 37743)
 -- Name: typologies typologies_name_typology_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -839,7 +802,7 @@ ALTER TABLE ONLY public.typologies
 
 
 --
--- TOC entry 2815 (class 2606 OID 35616)
+-- TOC entry 2816 (class 2606 OID 37745)
 -- Name: typologies typologies_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -848,7 +811,7 @@ ALTER TABLE ONLY public.typologies
 
 
 --
--- TOC entry 2817 (class 2606 OID 35618)
+-- TOC entry 2818 (class 2606 OID 37747)
 -- Name: users users_cell_num_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -857,7 +820,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 2819 (class 2606 OID 35620)
+-- TOC entry 2820 (class 2606 OID 37749)
 -- Name: users users_email_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -866,7 +829,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 2821 (class 2606 OID 35622)
+-- TOC entry 2822 (class 2606 OID 37751)
 -- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -875,7 +838,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 2782 (class 2606 OID 35623)
+-- TOC entry 2784 (class 2606 OID 37752)
 -- Name: users users_role_check; Type: CHECK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -884,7 +847,7 @@ ALTER TABLE public.users
 
 
 --
--- TOC entry 2823 (class 2606 OID 35625)
+-- TOC entry 2824 (class 2606 OID 37754)
 -- Name: users users_username_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -893,8 +856,17 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 2825 (class 2606 OID 35627)
--- Name: workspace_notes workspace_notes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 2786 (class 2606 OID 37857)
+-- Name: workspace_notes workspace_notes_check; Type: CHECK CONSTRAINT; Schema: public; Owner: se_project
+--
+
+ALTER TABLE public.workspace_notes
+    ADD CONSTRAINT workspace_notes_check CHECK ((((id_activity IS NULL) AND (id_site IS NOT NULL)) OR ((id_activity IS NOT NULL) AND (id_site IS NULL)))) NOT VALID;
+
+
+--
+-- TOC entry 2826 (class 2606 OID 37851)
+-- Name: workspace_notes workspace_notes_pkey; Type: CONSTRAINT; Schema: public; Owner: se_project
 --
 
 ALTER TABLE ONLY public.workspace_notes
@@ -902,7 +874,7 @@ ALTER TABLE ONLY public.workspace_notes
 
 
 --
--- TOC entry 2826 (class 2606 OID 35628)
+-- TOC entry 2827 (class 2606 OID 37757)
 -- Name: accesses accesses_id_user_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -911,7 +883,7 @@ ALTER TABLE ONLY public.accesses
 
 
 --
--- TOC entry 2827 (class 2606 OID 35633)
+-- TOC entry 2828 (class 2606 OID 37762)
 -- Name: activity_materials activity_materials_id_activity_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -920,7 +892,7 @@ ALTER TABLE ONLY public.activity_materials
 
 
 --
--- TOC entry 2828 (class 2606 OID 35638)
+-- TOC entry 2829 (class 2606 OID 37767)
 -- Name: activity_materials activity_materials_id_material_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -929,7 +901,7 @@ ALTER TABLE ONLY public.activity_materials
 
 
 --
--- TOC entry 2829 (class 2606 OID 35643)
+-- TOC entry 2830 (class 2606 OID 37772)
 -- Name: interventions interventions_id_user_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -938,7 +910,7 @@ ALTER TABLE ONLY public.interventions
 
 
 --
--- TOC entry 2830 (class 2606 OID 35648)
+-- TOC entry 2831 (class 2606 OID 37777)
 -- Name: maintainer_skills maintaner_skills_id_competency_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -947,7 +919,7 @@ ALTER TABLE ONLY public.maintainer_skills
 
 
 --
--- TOC entry 2831 (class 2606 OID 35653)
+-- TOC entry 2832 (class 2606 OID 37782)
 -- Name: maintainer_skills maintaner_skills_id_user_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -956,7 +928,7 @@ ALTER TABLE ONLY public.maintainer_skills
 
 
 --
--- TOC entry 2832 (class 2606 OID 35658)
+-- TOC entry 2833 (class 2606 OID 37787)
 -- Name: maintenance_activities maintenance_activities_id_procedure_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -965,7 +937,7 @@ ALTER TABLE ONLY public.maintenance_activities
 
 
 --
--- TOC entry 2833 (class 2606 OID 35663)
+-- TOC entry 2834 (class 2606 OID 37792)
 -- Name: maintenance_activities maintenance_activities_id_site_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -974,7 +946,7 @@ ALTER TABLE ONLY public.maintenance_activities
 
 
 --
--- TOC entry 2834 (class 2606 OID 35668)
+-- TOC entry 2835 (class 2606 OID 37797)
 -- Name: maintenance_activities maintenance_activities_id_typology_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -983,7 +955,7 @@ ALTER TABLE ONLY public.maintenance_activities
 
 
 --
--- TOC entry 2835 (class 2606 OID 35673)
+-- TOC entry 2836 (class 2606 OID 37802)
 -- Name: maintenance_activities maintenance_activities_id_user_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -992,7 +964,7 @@ ALTER TABLE ONLY public.maintenance_activities
 
 
 --
--- TOC entry 2836 (class 2606 OID 35678)
+-- TOC entry 2837 (class 2606 OID 37807)
 -- Name: procedure_skills procedure_skills_id_competency_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1001,7 +973,7 @@ ALTER TABLE ONLY public.procedure_skills
 
 
 --
--- TOC entry 2837 (class 2606 OID 35683)
+-- TOC entry 2838 (class 2606 OID 37812)
 -- Name: procedure_skills procedure_skills_id_procedure_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1009,26 +981,9 @@ ALTER TABLE ONLY public.procedure_skills
     ADD CONSTRAINT procedure_skills_id_procedure_fkey FOREIGN KEY (id_procedure) REFERENCES public.maintenance_procedures(id_procedure);
 
 
---
--- TOC entry 2838 (class 2606 OID 35688)
--- Name: workspace_notes workspace_notes_id_activity_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.workspace_notes
-    ADD CONSTRAINT workspace_notes_id_activity_fkey FOREIGN KEY (id_activity) REFERENCES public.maintenance_activities(id_activity);
-
-
---
--- TOC entry 2839 (class 2606 OID 35693)
--- Name: workspace_notes workspace_notes_id_site_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.workspace_notes
-    ADD CONSTRAINT workspace_notes_id_site_fkey FOREIGN KEY (id_site) REFERENCES public.sites(id_site);
-
-
--- Completed on 2020-11-26 10:17:39
+-- Completed on 2020-12-07 18:59:43
 
 --
 -- PostgreSQL database dump complete
 --
+
