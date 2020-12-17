@@ -9,7 +9,7 @@
 </head>
 
 <body style="touch-action:none; color: white; background-image: url('../imgs/background.jpg'); background-size: 100%; font-family: Tahoma;">
-    <div class="card" style = "margin: auto; margin-top: 10%; width:900px; border-radius: 5px; border-color: grey;">
+    <div class="card" style = "margin: auto; margin-top: 10%; width:1100px; border-radius: 5px; border-color: grey;">
         <div class="card-body" style="background-color: #f0f4f5; padding:3%; color: white; border-radius: 5px;">
            <div class = "row" align="center">
                 <div class="col-4">
@@ -29,23 +29,24 @@
                 <div class="col-5">
                 </div>
                 <div class="col-3">
-                    <button type="button" id="createButton" class="btn btn-dark" style="margin-left:30px; width:170px; height: 45px;"><b style="font-size: 20px;">+</b> Create procedure</button>
+                    <button type="button" id="createButton" class="btn btn-dark" style="margin-left:65px; width:170px; height: 45px;"><b style="font-size: 20px;">+</b> Create procedure</button>
                 </div>
             </div>
 
 <hr>
 
-<table class="table-hover table-striped" id="procedure-list" border="1" width="100%" style="border-color: black; border-width: 2px; color: black; text-align: center;">
+<table class="table table-hover table-striped" id="procedure-list" width="100%" style="color: black; text-align: center;">
     <thead>
     <tr>
         <th>Id</th>
-        <th>SMP</th>
+        <th>Name</th>
         <th>	</th>
     </tr>
     <template id="procedures-list-row-template">
         <tr>
             <td>{Id}</td>
-            <td>{SMP}</td>
+            <td>{Name}</td>
+            <td>{PDF}</td>
             <td>{Actions}</td>
         </tr>
     </template>

@@ -31,8 +31,11 @@ function renderGui(data) {
     $.each(data, function (index, obj) {
         let row = staticHtml;
         row = row.replace(/{Id}/ig, obj.id_procedure);
-        row = row.replace(/{SMP}/ig, obj.smp);
-        let buttons = '<a href="../html/assign_competencies.html?id='+obj.id_procedure+'"    title="Assign Competencies" data-toggle="tooltip"><img src="../imgs/add.png" style="margin-left: 5px; margin-right: 5px; width: 20px; height:20px"></a>' + '<a href="../html/modify_procedure.html?id='+obj.id_procedure+'"     title="Edit" data-toggle="tooltip"><img src="../imgs/edit.png" style="margin-left: 5px; margin-right: 5px; width: 20px; height:20px"></a>' +  '<button type="button" style="border:none; background:none; width:20px; outline:none; margin-right: 5px;"><img src="../imgs/delete.png" onclick="deleteProcedure(\'' + obj.id_procedure + '\')" style="width: 20px; height:20px"></button>';        row = row.replace(/{Actions}/ig, buttons);
+        row = row.replace(/{Name}/ig, obj.name);
+        let pdf_button = '<button type="button" style="border:none; background:none; width:20px; outline:none; margin-right: 5px;"><img src="../imgs/pdf.png" onclick="visualizeSMP(\'' + obj.id_procedure + '\')" style="width: 20px; height:20px"></button>';
+        row = row.replace(/{PDF}/ig, pdf_button);
+        let buttons = '<a href="../html/assign_competencies.html?id='+obj.id_procedure+'"title="Assign Competencies" data-toggle="tooltip"><img src="../imgs/add.png" style="margin-left: 5px; margin-right: 5px; width: 20px; height:20px"></a>' + '<a href="../html/modify_procedure.html?id='+obj.id_procedure+'"     title="Edit" data-toggle="tooltip"><img src="../imgs/edit.png" style="margin-left: 5px; margin-right: 5px; width: 20px; height:20px"></a>' +  '<button type="button" style="border:none; background:none; width:20px; outline:none; margin-right: 5px;"><img src="../imgs/delete.png" onclick="deleteProcedure(\'' + obj.id_procedure + '\')" style="width: 20px; height:20px"></button>';        
+        row = row.replace(/{Actions}/ig, buttons);
         $('#procedures-list-rows').append(row);
     });
 
@@ -41,6 +44,11 @@ function renderGui(data) {
 
 	    })
 	})
+}
+
+function visualizeSMP(id){
+    var win = window.open("http://"+JAVA_TOMCAT_HOST+ "/MaintenanceProject/DBLoader/jsp/visualize_smp_procedure.jsp?id_procedure="+id, '_blank');
+    win.focus()
 }
 
 function deleteProcedure(id) {

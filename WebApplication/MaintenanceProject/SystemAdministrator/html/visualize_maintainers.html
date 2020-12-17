@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset = "UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' >
+    <title>Users List</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+
+<body style="touch-action:none; color: white; background-image: url('../imgs/background.jpg'); background-size: 100%; font-family: Tahoma;">
+    <div class="card" style = "margin: auto; margin-top: 10%; width:1100px; border-radius: 5px; border-color: grey;">
+        <div class="card-body" style="background-color: #f0f4f5; padding:3%; color: white; border-radius: 5px; ">
+           <div class = "row" align="center">
+                <div class="col-4">
+                </div>
+                <div class="col-4">
+                    <h1 style="color: black; font-size: 35px;"><img src="../imgs/maintainer.png" style="width:30px; height:30px;"/>Maintainer</h1>
+                </div>
+                <div class="col-4">
+                </div>
+            </div>
+            <div class = "row">
+                <div class="col-4">
+                    <button type="button" id="homeButton" class="btn btn-dark" style="margin-right:60px; width:90px; height: 45px;"><span style=" color: transparent;
+                        text-shadow: 0 0 0 white; font-size: 12px;">&#127968;</span> Home
+                    </button>
+                </div>
+                <div class="col-5">
+                </div>
+            </div>
+
+<hr>
+
+<table class="table table-hover table-striped" id="maintainers-list"width="100%" style="color: black; text-align: center;">
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>CellNum</th>
+        <th>Email</th>
+        <th>    </th>
+    </tr>
+    <template id="maintainers-list-row-template">
+        <tr>
+            <td>{Username}</td>
+            <td>{Name}</td>
+            <td>{Surname}</td>
+            <td>{CellNum}</td>
+            <td>{Email}</td>
+            <td>{Actions}</td>
+        </tr>
+    </template>
+    </thead>
+    <tbody id="maintainers-list-rows">
+    </tbody>
+</table>
+
+<div class="modal fade" id="modal-ajax-response" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header text-white">
+                            <h5 class="modal-title">Result</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <span id="ajax-response" style="color: black;"></span>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" id="redirect-to-home" value="1">
+                            <button type="button" class="btn btn-secondary no-ajax" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<br>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src = "../js/visualize_maintainers.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+</html>

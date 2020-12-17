@@ -32,6 +32,10 @@ public class DbConnection {
         this.pwd = pwd;
     }
 
+
+    /*
+        Returns the connection to the database.
+     */
     public Connection connect(){
         Connection con = null;
         try{
@@ -43,6 +47,9 @@ public class DbConnection {
         return con;
     }
 
+    /*
+        Given a database connection, the method closes it.
+     */
     public void closeConnection(Connection c){
         try {
             c.close();

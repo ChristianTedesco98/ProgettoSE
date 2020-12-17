@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "UTF-8">
+<title>Visualize EWOs</title>
+<meta name = "viewport" content = "width = device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+
+<body style="touch-action:none; color: white; background-image: url('../imgs/background.jpg'); background-size: 100%; font-family: Tahoma;">
+<div class="card" style = "margin:auto; margin-top: 5%;  width:900px;  border-radius: 5px; border-color: grey; background-color: orange">
+<div class="card-body" style="background-color: #E89A35; padding:5%; ">
+	<div class = "row">
+		<div class="col-lg-2 col-md-2 col-sm-2">
+			<div class="alert alert-light" role="alert" style = "height:50px; width:120px; font-size: 18px; color: #47525E; text-align: center; margin-right: " >
+			<b> Week n° </b>
+			</div>
+		</div>
+		<div class="col-lg-1.5 col-md-1.5 col-sm-1.5">
+			<button type="button" class="btn btn-dark" id="week" style="height:50px; width:90px; font-size: 20px;"> <b> {Week} </b> </button>
+		</div>
+		<div class="col-lg-7 col-md-7 col-sm-7">
+		</div>
+		<div class="col-lg-1.5 col-md-1.5 col-sm-1.5">
+		<a href="home_planner.html"><button type="button" class="btn btn-dark" id="backButton" style="height:50px; width:90px; font-size: 17px;"> <b> <b>&#129120;</b> Back </b> </button></a>	
+		</div>
+	</div>
+
+	<div class = "row">
+			<table class="table table-hover table-striped" id="activities-list" width="100%" style="font-size: 20px; color: black; text-align: center;">
+			    <thead>
+			    <tr>
+			        <th > <b style="color: #47525E;">EWO ID</b> </th>
+			        <th> <b style="color: #47525E;" >AREA</b> </th>
+			        <th> <b style="color:#47525E;">TYPE</b> </th>
+			        <th> <b style="color:#47525E;"> Estimated intervention <br> time [min] </b> </th>
+			        <th>    </th>
+			    </tr>
+			    <template id="activities-list-row-template">
+			        <tr>
+			            <td><b>{EWOId}</b></td>
+			            <td><b>{Area}</b></td>
+			            <td><b>{Type}</b></td>
+			            <td><b>{EIT}</b></td>
+			            <td><b>{Select}</b></td>
+			        </tr>
+			    </template>
+			    </thead>
+			    <tbody id="activities-list-rows">
+			    </tbody>
+			</table>
+	</div>
+</div>
+
+
+</div>
+
+
+<div class="modal fade" id="modal-ajax-response" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header text-white">
+                            <h5 class="modal-title">Result</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <span id="ajax-response" style="color: black;"></span>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" id="redirect-to-home" value="1">
+                            <button type="button" class="btn btn-secondary no-ajax" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<br>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src = "../js/visualize_EWOs.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<%@	page import="it.unisa.se.team7.*" %>
+<%
+	DbConnection dbc = new DbConnection();
+	DBLoaderJavaServiceDataProvider dbl = new DBLoaderJavaServiceDataProvider();
+	response.setContentType("application/json");
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    int id_activity = Integer.valueOf(request.getParameter("id_procedure"));
+	String smp_string = request.getParameter("smp");
+	String name_procedure = request.getParameter("name_procedure");
+    byte[] b = smp_string.getBytes("ISO-8859-1");
+	String json = dbl.modifyProcedureSMP(dbc, id_activity, name_procedure, b);
+%>
+<%=json%>

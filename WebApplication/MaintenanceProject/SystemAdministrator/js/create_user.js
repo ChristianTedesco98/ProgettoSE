@@ -8,6 +8,11 @@ function initBrowsing() {
 	document.getElementById("backButton").onclick=goToVisualizePage;
 }
 
+function validateEmail(email) {
+	const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	return re.test(email);
+}
+
 
 function createUser() {
 	let username_string=document.getElementById("inputUsername").value;
@@ -19,16 +24,40 @@ function createUser() {
 	let birth_date_string=document.getElementById("inputBirth").value;
 	let role_string = "";
 	let role_html_string=document.getElementById("inputRole").value;
-	if(role_html_string === "Planner")
+	if(role_html_string === "Planner"){
 		role_string = "planner";
-	else 
-		if(role_html_string === "Maintainer")
+	}
+	else{ 
+		if(role_html_string === "Maintainer"){
 			role_string = "maintainer";
-		else 
-			if(role_html_string === "System Administrator")
+		}
+		else{ 
+			if(role_html_string === "System Administrator"){
 				role_string = "sys_adm";
-			else 
-				role_string = "dbloader";		
+			}
+			else{ 
+				role_string = "dbloader";
+			}
+		}
+	}
+
+	
+	if(validateEmail(email_string) == false){
+		$(".modal-header").addClass("bg-danger");
+        $(".modal-title").html("Error");
+        $("#ajax-response").html("Insert a valid email address!");
+        $("#modal-ajax-response").modal();
+        $('body').on('#modals #modal-ajax-response hidden.bs.modal', function () {
+                    $(".modal-header").removeClass("bg-danger bg-success");
+                    $(".modal-title").html("")
+                    $("#ajax-response").html("");
+                });
+        return;
+	}
+				
+	
+	
+
 	$.ajax({
         type: "POST",
         url: "http://"+JAVA_TOMCAT_HOST+ "/MaintenanceProject/SystemAdministrator/jsp/create_user.jsp",

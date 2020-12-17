@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset = "UTF-8">
+	<title>Assign activity</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' >
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	<style>
+		.hour:hover{
+			text-decoration: underline;
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body style="touch-action:none; color: white; background-image: url('../imgs/background.jpg'); background-size: 100%; font-family: Tahoma;">
+	<div class="card" style = "margin:auto; margin-top: 5%;  width:900px;" style="background-color: orange">
+		<div class="card-body" style="background-color: #E89A35; padding:3%;">
+		<div class = "row">
+			<div class="alert alert-light col-lg-1.5 col-md-1.5 col-sm-1.5 " role="alert" style = "height:50px; width:130px; font-size: 20px; color: #47525E; text-align: center;" >
+				<b>Week n°</b>
+			</div>
+			<div class="col-lg-0.5 col-md-0.5 col-sm-0.5">&nbsp;</div>
+			<button id="week" type="button" class="btn btn-dark col-lg-1 col-md-1 col-sm-1" style="height:50px; width:90px; font-size: 20px; text-align: center;"> <b>{Week}</b> </button>
+
+			<div class="col-lg-1.5 col-md-1.5 col-sm-1.5">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+			<div class="alert alert-light col-lg-3 col-md-3 col-sm-3" role="alert" style = "height:111px; font-size: 20px; color: #47525E; text-align: center; padding-top: 25px " >
+				<b>Activity to <br>
+				   assign</b>
+			</div>
+			<div class="col-lg-0.5 col-md-0.5 col-sm-0.5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+			<button id="activity" type="button" class="btn btn-dark col-lg-5 col-md-5 col-sm-5" style="height:111px; width:390px; font-size: 17px; text-align: center;">
+			<b>{Activity}</b></button>
+			<div id="dayName" class="alert alert-light col-1.5" role="alert" style = "height:50px; width:130px; font-size: 15px; color: #47525E; text-align: center; margin-top: -70px" >
+				<b>{DayName}</b>
+			</div>
+			<div class="col-lg-0.5 col-md-0.5 col-sm-0.5">&nbsp;</div>
+			<button id="dayNum" type="button" class="btn btn-dark col-lg-1 col-md-1 col-sm-1" style="height:50px; font-size: 20px; text-align: center; margin-top: -70px"> <b>{DayNum}</b> </button>
+			<br>
+		</div>
+		<div class = "row">
+			<div class="alert alert-warning col-lg-3 col-md-3 col-sm-3" role="alert" style = "border-color:#FFD185; background-color: #FFD185;height:50px; font-size: 18px; color: #47525E; text-align: center;  padding-bottom:50px;" >
+				<b>Workspace notes</b>
+			</div>
+			<div class="col-lg-1.5 col-md-1.5 col-sm-1.5">
+			&nbsp;&nbsp;&nbsp;</div>
+			<div id="user" class="alert alert-warning col-lg-8 col-md-8 col-sm-8" role="alert" style = "border-color:#FFD185; background-color: #FFD185;height:50px; font-size: 25px; color: #47525E; padding-bottom:50px;" >
+				<b>AVAILABILITY {User}</b>
+				<div id="percentage" class="alert alert-light" role="alert" style = "height:65px; width:80px; margin: auto; margin-left: 450px; margin-top: -50px; background-color: #FCFF00; font-size: 22px; color: black; border-color: black; border-width: 3px; text-align: center; padding: 5px; "> {percentage}</div>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div id="notes" class="alert alert-light col-3" role="alert" style = "height:200px; font-size: 17px; color: #47525E;" >
+				<b>{Notes}</b>
+			</div>
+			<div class="col-8">
+			<table border="3" cellpadding="3" style = " border-color: white; background-color: #E89A35;" >
+  				<thead>
+					<tr style = "color: black; text-align: center; font-size: 12px;">
+					<th scope="col"> Maintainer</b> </th>
+					<th scope="col">  Skills </th>
+					<th scope="col"> Availab. <br> 8:00-9:00</th>
+					<th scope="col"> Availab. <br> 9:00-10:00</th>
+					<th scope="col"> Availab.<br> 10:00-11:00</th>
+					<th scope="col"> Availab. <br> 11:00-12:00 </th>
+					<th scope="col"> Availab. <br> 14:00-15:00  </th>
+					<th scope="col"> Availab. <br> 15:00-16:00</th>
+					<th scope="col"> Availab. <br> 16:00-17:00</th>
+				</tr>
+			</thead>
+			<template id="hours-list-row-template">
+				<tr style = "background-color: #F9D5A8; color: black; text-align: center;" >
+					<th> <b>{Maintainer}</b> </th>
+					<td>{Skills}</td>
+					<td>{Hour0}</td>
+					<td>{Hour1}</td>
+					<td>{Hour2}</td>
+					<td>{Hour3}</td>
+					<td>{Hour4}</td>
+					<td>{Hour5}</td>
+					<td>{Hour6}</td>
+				</tr>
+			</template>
+			<tbody id="hours-list-rows">
+    		</tbody>
+			</table>
+			<p id="warningMessage" style="font-size: 12px; display:none; color:black; text-align: center">You must select an hour by clicking on it!</p>
+			</div>
+			<div class="col-5"></div>
+			<button id="linkSend" type="button" class="btn btn-dark col-4" style="height:50px; margin-top: -70px; font-size: 20px;"> <b style = "color: white, font-size: 30px"> SEND </b> </button>
+		</div>
+
+			</div>
+		</div>
+
+
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+	        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	        crossorigin="anonymous"></script>
+		<script src = "../js/assign_activity.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+	</body>
+
+</html>

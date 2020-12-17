@@ -1,0 +1,89 @@
+<html>
+	<!DOCTYPE html>
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "viewport" content = "width = device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+
+<body style="touch-action:none; color: white; background-image: url('../imgs/background.jpg'); background-size: 100%; font-family: Tahoma;">
+	<div class="card" style = "margin:auto; margin-top: 5%;  width:900px;  border-radius: 5px; border-color: grey; background-color: orange">
+		<div class="card-body" style="background-color: #E89A35; padding:3%;">
+		<div class = "row">
+			<div class="alert alert-light col-lg-2 col-md-2 col-sm-2" role="alert" style = "height:50px; width:120px; font-size: 20px; color: #47525E; text-align: center;" >
+				<b>Week n°</b>
+			</div>
+			<div class="col-lg-0.5 col-md-0.5 col-sm-0.5">&nbsp;</div>
+			<button type="button" id="week" class="btn btn-dark col-lg-1.5 col-md-1.5 col-sm-1.5" style="height:50px; width:90px; font-size: 20px; text-align: center;"> <b> {Week}</b> </button>
+			<div class="col-lg-0.5 col-md-0.5 col-sm-0.5">&nbsp;</div>
+			<div class="alert alert-light col-lg-2.5 col-md-2.5 col-sm-2.5" role="alert" style = "height:50px; width:220px; font-size: 20px; color: #47525E; text-align: center;" >
+				<b>Activity to assign</b>
+			</div>
+			<div class="col-lg-0.5 col-md-0.5 col-sm-0.5">&nbsp;</div>
+			<button type="button" id="activity" class="btn btn-dark col-lg-4.5 col-md-4.5 col-sm-4.5" style="height:50px; width:390px; font-size: 15px; text-align: center;">
+			<b> {Activity}</b></button>
+		</div>
+		<div class="row">
+			<br>
+		</div>
+		<div class = "row">
+			<div class="alert alert-warning col-lg-3 col-md-3 col-sm-3" role="alert" style = "border-color:#FFD185; background-color: #FFD185;height:50px; width:210px; font-size: 20px; color: #47525E; text-align: center;" >
+				<b>Workspace notes</b>
+			</div>
+			<div class="col-lg-0.5 col-md-0.5 col-sm-0.5">&nbsp;</div>
+			<div class="alert alert-warning col-lg-4.5 col-md-4 col-sm-4.5" role="alert" style = "border-color:#FFD185; background-color: #FFD185;height:50px; width:300px; font-size: 20px; color: #47525E; text-align: center;" >
+				<b>Intervention description</b>
+			</div>
+			<div class="col-lg-0.5 col-md-0.5 col-sm-0.5">&nbsp;</div>
+			<div class="alert alert-warning col-lg-4.5 col-md-4 col-sm-4.5" role="alert" style = " border-color:#FFD185; background-color: #FFD185; height:50px; width:330px; font-size: 20px; color: #47525E; text-align: center;" >
+				<b>Skills needed</b>
+			</div>
+		</div>
+		<div class="row">
+			<template id="note-template">
+				<b> {Note} </b>
+			</template>
+			<div id="note" class="alert alert-light col-lg-3 col-md-3 col-sm-3" role="alert" style = "height:200px; width:210px; font-size: 17px; color: #47525E;" >
+			</div>
+			<div class="col-lg-0.5 col-md-0.5 col-sm-0.5">&nbsp;</div>
+			<template id="description-template">
+				<b> {Description} </b>
+			</template>
+			<div id="description" class="alert alert-light col-lg-4 col-md-4 col-sm-4" role="alert" style = "height:70px; width:300px; font-size: 17px; color: #47525E;" >
+			</div>
+			<div>
+
+			<button type="button" id="procedureButton" style="width:100px; height:100px; border:none; background:none; outline:none; margin-top: 10px;"><img src="../imgs/direttorio.png" style="height: 125px; width: 125px; margin-left: -556px; margin-top:63px;"></button>
+
+				
+
+			</div>
+			<template id="smp-template">
+				<b> {Smp} </b>
+			</template>
+			<div id="smp" class="alert alert-light" role="alert" style = "height:125px; width:168px; font-size: 17px; color: #47525E; margin-left: -268px; margin-top:74px;" >
+			</div>
+			<div class="col-lg-0.5 col-md-0.5 col-sm-0.5">&nbsp;</div>
+			<div class="alert alert-light  col-lg-4 col-md-4 col-sm-4" role="alert" style = "height:130px; width:330px; font-size: 13px; color: #47525E;" >
+						<b><template id="skills-list-row-template">
+					        <li>{Item}</li>
+					    </template></b>
+					    <ul id="skills-list-rows">
+					    </ul>
+						<a id="linkForward" href="verify_selected.html"><button type="button" align="center" class="btn btn-dark" style="height:50px; width:250px; font-size: 20px; text-align: center; margin-top: 50px">
+							<b>FORWARD</b></button></a>
+			</div>
+		</div>
+	</div>
+
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+	<script src = "../js/visualize_selected.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</body>
+
+</html>
