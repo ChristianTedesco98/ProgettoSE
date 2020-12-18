@@ -9,11 +9,13 @@ import java.util.HashMap;
 public class DBLoaderJavaServiceDataProvider {
 
     private Connection con;
+    private DbConnection dbc = new DbConnection();
 
     /*
         Return a String in JSON Format with the attributes of the sites.
      */
-    public String visualizeSites(DbConnection dbc) {
+    public String visualizeSites() {
+
         String sitesJSONFormat = "{\"id_site\":\"{ID_SITE}\",\"area\":\"{AREA}\",\"factory_site\":\"{FACTORY_SITE}\"}";
         String sitesJSONResult = "";
         String JSONRow = "";
@@ -49,7 +51,8 @@ public class DBLoaderJavaServiceDataProvider {
     /*
         Given the id of a specific site, return a String in JSON Format with the attributes of that particular site
      */
-    public String visualizeSite(DbConnection dbc, int id_site) {
+    public String visualizeSite( int id_site) {
+
         String sitesJSONFormat = "{\"id_site\":\"{ID_SITE}\",\"area\":\"{AREA}\",\"factory_site\":\"{FACTORY_SITE}\"}";
         String sitesJSONResult = "";
         String JSONRow = "";
@@ -87,7 +90,8 @@ public class DBLoaderJavaServiceDataProvider {
         Given the attributes of a new site, the method inserts it in the database and return a message in JSON Format
         that reports the operation result
      */
-    public String createSite(DbConnection dbc, String area, String factory_site) {
+    public String createSite( String area, String factory_site) {
+
         this.con = dbc.connect();
         String responseJSON = "[{\"err_code\":\"{ERR_CODE}\", \"msg\":\"{MSG}\"}]";
 
@@ -114,7 +118,8 @@ public class DBLoaderJavaServiceDataProvider {
         Given the attributes of a specific site, the method modify its attributes in the database and return a
         message in JSON Format that reports the operation result
      */
-    public String modifySite(DbConnection dbc, int id_site, String area, String factory_site) {
+    public String modifySite( int id_site, String area, String factory_site) {
+
         this.con = dbc.connect();
         String responseJSON = "[{\"err_code\":\"{ERR_CODE}\", \"msg\":\"{MSG}\"}]";
 
@@ -139,7 +144,8 @@ public class DBLoaderJavaServiceDataProvider {
         Given the id of a specific site, the method deletes it from the database and return a
         message in JSON Format that reports the operation result
      */
-    public String deleteSite(DbConnection dbc, int id_site) {
+    public String deleteSite( int id_site) {
+
         this.con = dbc.connect();
         String responseJSON = "[{\"err_code\":\"{ERR_CODE}\", \"msg\":\"{MSG}\"}]";
 
@@ -165,7 +171,8 @@ public class DBLoaderJavaServiceDataProvider {
         Return a String in JSON Format with the attributes of the typologies.
      */
 
-    public String visualizeTypologies(DbConnection dbc) {
+    public String visualizeTypologies() {
+
         String typologiesJSONFormat = "{\"id_typology\":\"{ID_TYPOLOGY}\",\"name_typology\":\"{NAME_TYPOLOGY}\"}";
         String typologiesJSONResult = "";
         String JSONRow = "";
@@ -200,7 +207,8 @@ public class DBLoaderJavaServiceDataProvider {
         Given the id of a specific typology, return a String in JSON Format with the attributes of that particular
         typology
      */
-    public String visualizeTypology(DbConnection dbc, int id_typology) {
+    public String visualizeTypology(int id_typology) {
+
         String typologyJSONFormat = "{\"id_typology\":\"{ID_TYPOLOGY}\",\"name_typology\":\"{NAME_TYPOLOGY}\"}";
         String typologyJSONResult = "";
         String JSONRow = "";
@@ -237,7 +245,8 @@ public class DBLoaderJavaServiceDataProvider {
         Given the attributes of a new typology, the method inserts it in the database and return a message in JSON
         Format that reports the operation result
      */
-    public String createTypology(DbConnection dbc, String name_typology) {
+    public String createTypology(String name_typology) {
+
         this.con = dbc.connect();
         String responseJSON = "[{\"err_code\":\"{ERR_CODE}\", \"msg\":\"{MSG}\"}]";
 
@@ -264,7 +273,8 @@ public class DBLoaderJavaServiceDataProvider {
         Given the attributes of a specific typology, the method modify its attributes in the database and return a
         message in JSON Format that reports the operation result
      */
-    public String modifyTypology(DbConnection dbc, int id_typology, String name_tapology) {
+    public String modifyTypology( int id_typology, String name_tapology) {
+
         this.con = dbc.connect();
         String responseJSON = "[{\"err_code\":\"{ERR_CODE}\", \"msg\":\"{MSG}\"}]";
 
@@ -291,7 +301,8 @@ public class DBLoaderJavaServiceDataProvider {
         Given the id of a specific typology, the method deletes it from the database and return a
         message in JSON Format that reports the operation result
      */
-    public String deleteTypology(DbConnection dbc, int id_typology) {
+    public String deleteTypology( int id_typology) {
+
         this.con = dbc.connect();
         String responseJSON = "[{\"err_code\":\"{ERR_CODE}\", \"msg\":\"{MSG}\"}]";
 
@@ -316,7 +327,8 @@ public class DBLoaderJavaServiceDataProvider {
     /*
         Return a String in JSON Format with the attributes of the procedures.
      */
-    public String visualizeProcedures(DbConnection dbc) {
+    public String visualizeProcedures() {
+
         String proceduresJSONFormat = "{\"id_procedure\":\"{ID_PROCEDURE}\",\"name\":\"{NAME}\"}";
         String proceduresJSONResult = "";
         String JSONRow = "";
@@ -350,7 +362,8 @@ public class DBLoaderJavaServiceDataProvider {
     /*
        Given the id of a specific site, return a byte array which represents the SMP of that specific procedure
      */
-    public byte[] visualizeProcedureSMP(DbConnection dbc, int id_procedure){
+    public byte[] visualizeProcedureSMP(int id_procedure){
+
         byte[] smp = null;
         this.con = dbc.connect();
 
@@ -373,7 +386,8 @@ public class DBLoaderJavaServiceDataProvider {
         Given the id of a specific procedure, return a String in JSON Format with the attributes of that particular site
         (excluding the SMP)
      */
-    public String visualizeProcedure(DbConnection dbc, int id_procedure) {
+    public String visualizeProcedure(int id_procedure) {
+
         String procedureJSONFormat = "{\"id_procedure\":\"{ID_PROCEDURE}\",\"name\":\"{NAME}\"}";
         String procedureJSONResult = "";
         String JSONRow = "";
@@ -409,7 +423,8 @@ public class DBLoaderJavaServiceDataProvider {
         Given the attributes of a new procedure, the method inserts it in the database and return a message in JSON
         Format that reports the operation result
      */
-    public String createProcedure(DbConnection dbc, String name, byte[] pdf) {
+    public String createProcedure( String name, byte[] pdf) {
+
         this.con = dbc.connect();
         String responseJSON = "[{\"err_code\":\"{ERR_CODE}\", \"msg\":\"{MSG}\"}]";
 
@@ -437,7 +452,8 @@ public class DBLoaderJavaServiceDataProvider {
         Given the id and the new name of a specific procedure, the method modify its name in the database and return a
         message in JSON Format that reports the operation result
      */
-    public String modifyProcedureName(DbConnection dbc, int id_procedure, String name_procedure) {
+    public String modifyProcedureName(int id_procedure, String name_procedure) {
+
         this.con = dbc.connect();
         String responseJSON = "[{\"err_code\":\"{ERR_CODE}\", \"msg\":\"{MSG}\"}]";
 
@@ -463,7 +479,8 @@ public class DBLoaderJavaServiceDataProvider {
         Given the id and the new SMP of a specific procedure, the method modify its SMP in the database and return a
         message in JSON Format that reports the operation result
      */
-    public String modifyProcedureSMP(DbConnection dbc, int id_procedure, String name_procedure, byte[] smp){
+    public String modifyProcedureSMP(int id_procedure, String name_procedure, byte[] smp){
+
         this.con = dbc.connect();
         String responseJSON = "[{\"err_code\":\"{ERR_CODE}\", \"msg\":\"{MSG}\"}]";
 
@@ -492,7 +509,8 @@ public class DBLoaderJavaServiceDataProvider {
         Given the id of a specific procedure, the method deletes it from the database and return a
         message in JSON Format that reports the operation result
      */
-    public String deleteProcedure(DbConnection dbc, int id_procedure) {
+    public String deleteProcedure(int id_procedure) {
+
         this.con = dbc.connect();
         String responseJSON = "[{\"err_code\":\"{ERR_CODE}\", \"msg\":\"{MSG}\"}]";
 
@@ -518,7 +536,8 @@ public class DBLoaderJavaServiceDataProvider {
         Given the id of a specific procedure, the method returns a String in JSON Format with the competencies related
         to that procedure and if they're assigned to it or not
      */
-    public String visualizeProcedureCompetencies(DbConnection dbc, int id_procedure) {
+    public String visualizeProcedureCompetencies( int id_procedure) {
+
         String sitesJSONFormat = "{\"id_competency\":\"{ID_COMPETENCY}\",\"name_competency\":\"{NAME_COMPETENCY}\",\"assigned\":\"{ASSIGNED}\"}";
         String sitesJSONResult = "";
         String JSONRow = "";
@@ -571,8 +590,10 @@ public class DBLoaderJavaServiceDataProvider {
         with that specific procedure; the method associate the competencies to the procedure and return the operation
         result in a String in JSON format.
      */
-    public String assignProcedureCompetences(DbConnection dbc, int id_procedure, int num_competencies,
+    public String assignProcedureCompetences( int id_procedure, int num_competencies,
                                              String id_competencies, String checks) {
+
+
 
         String responseJson = "[{\"err_code\":\"{ERR_CODE}\",\"msg\":\"{MSG}\"}]";
         String[] checks_array = checks.split("\\,", -1);
@@ -608,7 +629,8 @@ public class DBLoaderJavaServiceDataProvider {
     /*
         Return a String in JSON Format with the attributes of the materials
     */
-    public String visualizeMaterials(DbConnection dbc) {
+    public String visualizeMaterials() {
+
         String materialsJSONFormat = "{\"id_material\":\"{ID_MATERIAL}\",\"name_material\":\"{NAME_MATERIAL}\"}";
         String materialsJSONResult = "";
         String JSONRow = "";
@@ -643,7 +665,8 @@ public class DBLoaderJavaServiceDataProvider {
         Given the id of a specific material, return a String in JSON Format with the attributes of that particular
         material
      */
-    public String visualizeMaterial(DbConnection dbc, int id_material) {
+    public String visualizeMaterial( int id_material) {
+
         String materialsJSONFormat = "{\"id_material\":\"{ID_MATERIAL}\",\"name_material\":\"{NAME_MATERIAL}\"}";
         String materialsJSONResult = "";
         String JSONRow = "";
@@ -680,7 +703,8 @@ public class DBLoaderJavaServiceDataProvider {
         Given the attributes of a new material, the method inserts it in the database and return a message in JSON Format
         that reports the operation result
      */
-    public String createMaterial(DbConnection dbc, String name_material) {
+    public String createMaterial(String name_material) {
+
         this.con = dbc.connect();
         String responseJSON = "[{\"err_code\":\"{ERR_CODE}\", \"msg\":\"{MSG}\"}]";
 
@@ -707,7 +731,8 @@ public class DBLoaderJavaServiceDataProvider {
         Given the id of a specific material, the method deletes it from the database and return a
         message in JSON Format that reports the operation result
      */
-    public String deleteMaterial(DbConnection dbc, int id_material) {
+    public String deleteMaterial( int id_material) {
+
         this.con = dbc.connect();
         String responseJSON = "[{\"err_code\":\"{ERR_CODE}\", \"msg\":\"{MSG}\"}]";
 

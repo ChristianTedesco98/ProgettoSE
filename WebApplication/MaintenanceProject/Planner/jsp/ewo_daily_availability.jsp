@@ -4,8 +4,6 @@
 
 <% 
 
-    DbConnection db = new DbConnection(); 
-
     PlannerServiceDataProvider pl_service = new PlannerServiceDataProvider();
 
     String procedureSkills = request.getParameter("skills");
@@ -14,7 +12,7 @@
     
     String[] procedureSkills_array = procedureSkills.split(", ");
     
-    String availabilityWeek = pl_service.maintainersDailyAvailability(db, procedureSkills_array, date);
+    String availabilityWeek = pl_service.maintainersDailyAvailability(procedureSkills_array, date);
 
     response.setContentType("application/json");
 

@@ -4,13 +4,12 @@
 
 <% 
 
-    DbConnection db = new DbConnection(); 
 
     PlannerServiceDataProvider pl_service = new PlannerServiceDataProvider();
 
     int id_activity = Integer.valueOf(request.getParameter("id_activity"));
 
-    String json = pl_service.visualizeActivityDetails(db, id_activity);
+    String json = pl_service.visualizeActivityDetails(id_activity);
 
     response.setContentType("application/json");
 

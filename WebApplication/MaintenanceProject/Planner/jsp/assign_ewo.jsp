@@ -4,7 +4,6 @@
 
 <% 
 
-    DbConnection db = new DbConnection(); 
 
     PlannerServiceDataProvider pl_service = new PlannerServiceDataProvider();
 
@@ -14,7 +13,7 @@
 
     String date_time= request.getParameter("date_time");
     
-    String json = pl_service.assignmentEwoMaintainer(db, id_activity, id_maintainer, date_time);
+    String json = pl_service.assignmentEwoMaintainer(id_activity, id_maintainer, date_time);
 
     response.setContentType("application/json");
 

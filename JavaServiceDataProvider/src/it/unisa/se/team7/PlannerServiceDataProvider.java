@@ -9,12 +9,13 @@ import java.util.*;
 public class PlannerServiceDataProvider {
 
     private Connection con;
+    private DbConnection db = new DbConnection();
 
     /*
         Method that given the number of a week, returns in a String in JSON Format the attributes request for the
         activities scheduled for that week
      */
-    public String visualizeWeekActivities(DbConnection db, int week){
+    public String visualizeWeekActivities( int week){
 
         String JSONFormat = "{\"id_activity\":\"{ID_ACTIVITY}\",\"area\":\"{AREA} - {FACTORY_SITE}\",\"type\":\"{TYPE}\",\"eit\":\"{EIT}\"}";
         String JSONResult = "";
@@ -66,7 +67,7 @@ public class PlannerServiceDataProvider {
         Given the id of a specific activity, the method returns a String in JSON format with the attributes of that
         specific activity
      */
-    public String visualizeActivityDetails(DbConnection db, int id_activity){
+    public String visualizeActivityDetails( int id_activity){
         String usersJSONFormat = "{\"workspace_notes\":\"{WORKSPACE_NOTES}\",\"description\":\"{DESCRIPTION}\",\"id_procedure\":\"{ID_PROCEDURE}\",\"name\":\"{NAME}\",\"skills\":\"{SKILLS}\"}";
         String usersJSONResult = "";
         String JSONRow = "";
@@ -190,7 +191,7 @@ public class PlannerServiceDataProvider {
         maintainers, the ratio of their skills respect the given skills and their availability for each date in the
         array (in percentage)
      */
-    public String maintainersAvailabilityWeek(DbConnection db, String[] procedureSkills_array, String[] dates){
+    public String maintainersAvailabilityWeek( String[] procedureSkills_array, String[] dates){
         List<String> procedureSkills = Arrays.asList(procedureSkills_array);
         String JSONFormat = "{\"id_maintainer\":\"{ID_MAINTAINER}\",\"name\":\"{NAME}\",\"skills\":\"{SKILLS}\",\"day0\":\"{DAY0}\",\"day1\":\"{DAY1}\",\"day2\":\"{DAY2}\",\"day3\":\"{DAY3}\",\"day4\":\"{DAY4}\",\"day5\":\"{DAY5}\",\"day6\":\"{DAY6}\"}";
         String JSONResult = "";
@@ -254,7 +255,7 @@ public class PlannerServiceDataProvider {
         Given the id of a maintainer and a specific date, the method returns a String in JSON format with the availability
         of the maintainer in the 7 hour intervals of that day
      */
-    public String maintainerAvailabilityDay(DbConnection db, int id_maintainer, String date){
+    public String maintainerAvailabilityDay( int id_maintainer, String date){
         String JSONFormat = "{\"hour0\":\"{HOUR0}\",\"hour1\":\"{HOUR1}\",\"hour2\":\"{HOUR2}\",\"hour3\":\"{HOUR3}\",\"hour4\":\"{HOUR4}\",\"hour5\":\"{HOUR5}\",\"hour6\":\"{HOUR6}\"}";
         String JSONResult = "";
         String JSONRow = "";
@@ -274,7 +275,7 @@ public class PlannerServiceDataProvider {
         intervention, the method inserts in the database the new intervention and return a String in JSON format
         rapresenting the operation result
      */
-    public String assignmentActivityMaintainer(DbConnection db, int id_activity, int id_maintainer, String date_time){
+    public String assignmentActivityMaintainer( int id_activity, int id_maintainer, String date_time){
         this.con = db.connect();
         String responseJson = "[{\"err_code\":\"{ERR_CODE}\",\"msg\":\"{MSG}\"}]";
         String insert_query = "insert into interventions values ({ID_USER}, {ID_ACTIVITY}, '{DATE_TIME}')";
@@ -397,7 +398,7 @@ public class PlannerServiceDataProvider {
         Given the id of a specific activity, return a String in JSON Format with the attributes of that particular
         activity
      */
-    public String visualizeActivity(DbConnection db, int id_activity) {
+    public String visualizeActivity( int id_activity) {
 
         String JSONFormat = "{\"description\":\"{DESCRIPTION}\",\"week\":\"{WEEK}\",\"interruptible\":\"{INTERRUPTIBLE}\",\"eit\":\"{EIT}\",\"area\":\"{AREA} - {FACTORY_SITE}\",\"typology\":\"{TYPOLOGY}\",\"name_procedure\":\"{NAME_PROCEDURE}\",\"id_user\":\"{ID_USER}\",\"ewo\":\"{EWO}\"}";
         String JSONResult = "";
@@ -450,7 +451,7 @@ public class PlannerServiceDataProvider {
         Given the attributes of a new activity, the method inserts it in the database and return a message in JSON Format
         that reports the operation result
      */
-    public String createActivity(DbConnection db, String description, int week, String interruptible,
+    public String createActivity( String description, int week, String interruptible,
                                  int eit, int id_typology, int id_site, int id_procedure, String ewo, int id_user)
     {
         this.con = db.connect();
@@ -486,7 +487,7 @@ public class PlannerServiceDataProvider {
         Given the attributes of a specific activity, the method modify its attributes in the database and returns a
         message in JSON Format that reports the operation result
      */
-    public String modifyActivity(DbConnection db, int id_activity, String description, int week, String interruptible,
+    public String modifyActivity( int id_activity, String description, int week, String interruptible,
                                  int eit, int id_typology, int id_site, int id_procedure, String ewo, int id_user)
     {
         this.con = db.connect();
@@ -524,7 +525,7 @@ public class PlannerServiceDataProvider {
         Given the id of a specific activity, the method deletes it from the database and return a
         message in JSON Format that reports the operation result
      */
-    public String deleteActivity(DbConnection db, int idActivity){
+    public String deleteActivity( int idActivity){
 
         this.con = db.connect();
         String responseJson = "[{\"err_code\":\"{ERR_CODE}\",\"msg\":\"{MSG}\"}]";
@@ -601,7 +602,7 @@ public class PlannerServiceDataProvider {
     /*
         Given the id of a specific ewo, return a String in JSON Format with the attributes of that particular ewo
      */
-    public String visualizeEWO(DbConnection db, int id_activity){
+    public String visualizeEWO( int id_activity){
         String JSONFormat = "{\"workspace_note\":\"{WORKSPACE_NOTE}\",\"description\":\"{DESCRIPTION}\",\"eit\":\"{EIT}\"}";
         String JSONResult = "";
         String JSONRow = "";
@@ -653,7 +654,7 @@ public class PlannerServiceDataProvider {
         Given the attributes of a specific ewo, the method modify its attributes in the database and return a
         message in JSON Format that reports the operation result
      */
-    public String updateEWO(DbConnection db, int id_activity, String description, int eit, int day){
+    public String updateEWO( int id_activity, String description, int eit, int day){
         this.con = db.connect();
         String responseJson = "[{\"err_code\":\"{ERR_CODE}\",\"msg\":\"{MSG}\"}]";
         String updateQuery = "update maintenance_activities set  description = '{DESCRIPTION}', eit = {EIT}, ewo_day = {EWO_DAY} where id_activity = '{ID_ACTIVITY}'";
@@ -684,13 +685,13 @@ public class PlannerServiceDataProvider {
         rapresents if a specific competency must be associated with the EWO, the method insert the associations and
         return a String in JSON Format which rapresents the operation result
      */
-    public String assignEwoCompetencies(DbConnection dbc, int id_activity, int num_competencies,
+    public String assignEwoCompetencies(int id_activity, int num_competencies,
                                              String id_competencies, String checks) {
 
         String responseJson = "[{\"err_code\":\"{ERR_CODE}\",\"msg\":\"{MSG}\"}]";
         String[] checks_array = checks.split("\\,", -1);
         String[] id_competencies_array = id_competencies.split("\\,", -1);
-        this.con = dbc.connect();
+        this.con = db.connect();
         String query = "";
         try {
             Statement stmt = this.con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -721,7 +722,7 @@ public class PlannerServiceDataProvider {
         create a new interventions, remove the interventions related to the interruptible activity and returns a String
         in JSON format with the operation result
      */
-    public String assignmentEwoMaintainer(DbConnection db, int id_activity, int id_maintainer, String date_time){
+    public String assignmentEwoMaintainer( int id_activity, int id_maintainer, String date_time){
         this.con = db.connect();
         String responseJson = "[{\"err_code\":\"{ERR_CODE}\",\"msg\":\"{MSG}\"}]";
         String delete_query = "delete from interventions \n" +
@@ -755,7 +756,7 @@ public class PlannerServiceDataProvider {
     /*
         Return a String in JSON Format with the status of EWOs.
      */
-    public String visualizeStatusEwos(DbConnection db, int week, int ewo_day){
+    public String visualizeStatusEwos( int week, int ewo_day){
         String JSONFormat = "{\"id_activity\":\"{ID_ACTIVITY}\",\"area\":\"{AREA} - {FACTORY_SITE}\",\"type\":\"{TYPE}\",\"eit\":\"{EIT}\",\"state_department\":\"{STATE_DEPARTMENT}\",\"state_maintainer\":\"{STATE_MAINTAINER}\"}";
         String JSONResult = "";
         String JSONRow = "";
@@ -836,11 +837,11 @@ public class PlannerServiceDataProvider {
         Given the id of a specific EWO, return a String in JSON Format with the attributes of the competencies and if
         they're associated with that specific EWO
      */
-    public String visualizeEwoCompetencies(DbConnection dbc, int id_activity) {
+    public String visualizeEwoCompetencies(int id_activity) {
         String sitesJSONFormat = "{\"id_competency\":\"{ID_COMPETENCY}\",\"name_competency\":\"{NAME_COMPETENCY}\",\"assigned\":\"{ASSIGNED}\"}";
         String sitesJSONResult = "";
         String JSONRow = "";
-        this.con = dbc.connect();
+        this.con = db.connect();
         HashMap<Integer, Integer> assigned_map = new HashMap<Integer, Integer>();
         try {
             Statement stmt = this.con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -888,7 +889,7 @@ public class PlannerServiceDataProvider {
         maintainers, the ratio of their skills respect the given skills and their availability for each hour interval
         in the day (in minutes)
      */
-    public String maintainersDailyAvailability(DbConnection db, String[] procedureSkills_array, String date){
+    public String maintainersDailyAvailability( String[] procedureSkills_array, String date){
         List<String> procedureSkills = Arrays.asList(procedureSkills_array);
         String JSONFormat = "{\"id_maintainer\":\"{ID_MAINTAINER}\",\"name\":\"{NAME}\",\"skills\":\"{SKILLS}\",\"hour0\":\"{HOUR0}\",\"hour1\":\"{HOUR1}\",\"hour2\":\"{HOUR2}\",\"hour3\":\"{HOUR3}\",\"hour4\":\"{HOUR4}\",\"hour5\":\"{HOUR5}\",\"hour6\":\"{HOUR6}\"}";
         String JSONResult = "";

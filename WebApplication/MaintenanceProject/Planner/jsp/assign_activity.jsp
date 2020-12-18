@@ -3,16 +3,13 @@
 
 
 <% 
-
-    DbConnection db = new DbConnection(); 
-
     PlannerServiceDataProvider pl_service = new PlannerServiceDataProvider();
 
     int id_maintainer = Integer.valueOf(request.getParameter("id_maintainer"));
 
     String date = request.getParameter("date");
 
-    String availabilityWeek = pl_service.maintainerAvailabilityDay(db, id_maintainer, date);
+    String availabilityWeek = pl_service.maintainerAvailabilityDay(id_maintainer, date);
 
     response.setContentType("application/json");
 

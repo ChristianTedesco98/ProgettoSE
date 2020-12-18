@@ -4,7 +4,6 @@
 
 <% 
 
-    DbConnection db = new DbConnection(); 
 
     PlannerServiceDataProvider pl_service = new PlannerServiceDataProvider();
 
@@ -16,7 +15,7 @@
     
     String[] dates_array = dates.split(",");
     
-    String availabilityWeek = pl_service.maintainersAvailabilityWeek(db, procedureSkills_array, dates_array);
+    String availabilityWeek = pl_service.maintainersAvailabilityWeek(procedureSkills_array, dates_array);
 
     response.setContentType("application/json");
 

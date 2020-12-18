@@ -4,7 +4,6 @@
 
 <% 
 
-    DbConnection db = new DbConnection(); 
 
     PlannerServiceDataProvider pl_service = new PlannerServiceDataProvider();
 
@@ -12,7 +11,7 @@
 
     int day=Integer.valueOf(request.getParameter("day"));
 
-    String json = pl_service.visualizeStatusEwos(db, week, day);
+    String json = pl_service.visualizeStatusEwos(week, day);
 
     response.setContentType("application/json");
 

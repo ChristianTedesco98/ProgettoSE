@@ -6,11 +6,12 @@ import java.util.HashMap;
 public class SystemAdministratorDataProvider {
 
     private Connection con;
+    private DbConnection db = new DbConnection();
 
     /*
         Return a String in a JSON Format with the attributes of the users.
      */
-    public String visualizeUsers(DbConnection db) {
+    public String visualizeUsers() {
         String usersJSONFormat = "{\"id_user\":\"{ID_USER}\",\"first_name\":\"{FIRST_NAME}\",\"surname\":\"{SURNAME}\",\"birth_date\":\"{BIRTH_DATE}\",\"username\":\"{USERNAME}\",\"password\":\"{PASSWORD}\",\"cell_num\":\"{CELL_NUMBER}\",\"email\":\"{EMAIL}\",\"role\":\"{ROLE}\"}";
         String usersJSONResult = "";
         String JSONRow = "";
@@ -58,7 +59,7 @@ public class SystemAdministratorDataProvider {
     /*
         Given the id of a specific user, return a String in a JSON Format with the attributes of that specific user.
      */
-    public String visualizeUser(DbConnection db, int idUser){
+    public String visualizeUser( int idUser){
         String usersJSONFormat = "{\"id_user\":\"{ID_USER}\",\"first_name\":\"{FIRST_NAME}\",\"surname\":\"{SURNAME}\",\"birth_date\":\"{BIRTH_DATE}\",\"username\":\"{USERNAME}\",\"password\":\"{PASSWORD}\",\"cell_num\":\"{CELL_NUMBER}\",\"email\":\"{EMAIL}\",\"role\":\"{ROLE}\"}";
         String usersJSONResult = "";
         String JSONRow = "";
@@ -109,7 +110,7 @@ public class SystemAdministratorDataProvider {
        Given the attributes of a new user, the method insert it in the database and return a message in a JSON Format
        that reports the operation result.
      */
-    public String createUser(DbConnection db, String firstName, String surname, String birth_date, String password,
+    public String createUser( String firstName, String surname, String birth_date, String password,
                            String cell_num, String email, String role, String username){
 
         this.con = db.connect();
@@ -146,7 +147,7 @@ public class SystemAdministratorDataProvider {
        JSON Format that reports the operation result.
      */
 
-    public String modifyUser(DbConnection db, int idUser, String firstName, String surname, String birth_date, String password,
+    public String modifyUser( int idUser, String firstName, String surname, String birth_date, String password,
                            String cell_num, String email, String role, String username) {
 
         this.con = db.connect();
@@ -189,7 +190,7 @@ public class SystemAdministratorDataProvider {
        JSON Format that reports the operation result.
      */
 
-    public String deleteUser(DbConnection db, int idUser){
+    public String deleteUser( int idUser){
 
         this.con = db.connect();
         String responseJson = "[{\"err_code\":\"{ERR_CODE}\",\"msg\":\"{MSG}\"}]";
@@ -220,7 +221,7 @@ public class SystemAdministratorDataProvider {
         Return a String in a JSON Format with the attributes of the competencies.
      */
 
-    public String visualizeCompetencies(DbConnection db){
+    public String visualizeCompetencies(){
         String competenciesJSONFormat = "{\"id_competency\":\"{ID_COMPETENCY}\", \"name_competency\":\"{NAME_COMPETENCY}\"}";
         String competenciesJSONResult = "";
         String JSONRow = "";
@@ -262,7 +263,7 @@ public class SystemAdministratorDataProvider {
         that specific competency.
      */
 
-    public String visualizeCompetency(DbConnection db, int idCompetency){
+    public String visualizeCompetency( int idCompetency){
         String competenciesJSONFormat = "{\"id_competency\":\"{ID_COMPETENCY}\", \"name\":\"{NAME_COMPETENCY}\"}";
         String competenciesJSONResult = "";
         String JSONRow = "";
@@ -310,7 +311,7 @@ public class SystemAdministratorDataProvider {
        JSON Format that reports the operation result.
      */
 
-    public String createCompetency(DbConnection db, String nameCompetency){
+    public String createCompetency( String nameCompetency){
 
         this.con = db.connect();
         String responseJson = "[{\"err_code\":\"{ERR_CODE}\",\"msg\":\"{MSG}\"}]";
@@ -341,7 +342,7 @@ public class SystemAdministratorDataProvider {
        return a message in a JSON Format that reports the operation result.
      */
 
-    public String modifyCompetency(DbConnection db, int idCompetency, String nameCompetency){
+    public String modifyCompetency( int idCompetency, String nameCompetency){
 
         this.con = db.connect();
         String responseJson = "[{\"err_code\":\"{ERR_CODE}\",\"msg\":\"{MSG}\"}]";
@@ -374,7 +375,7 @@ public class SystemAdministratorDataProvider {
        JSON Format that reports the operation result.
      */
 
-    public String deleteCompetency(DbConnection db, int idCompetency){
+    public String deleteCompetency( int idCompetency){
 
         this.con = db.connect();
         String responseJson = "[{\"err_code\":\"{ERR_CODE}\",\"msg\":\"{MSG}\"}]";
@@ -404,7 +405,7 @@ public class SystemAdministratorDataProvider {
         Return a String in a JSON Format with the attributes of the users whose role is maintainer.
      */
 
-    public String visualizeMaintainers(DbConnection db){
+    public String visualizeMaintainers(){
         String usersJSONFormat = "{\"id_user\":\"{ID_USER}\",\"first_name\":\"{FIRST_NAME}\",\"surname\":\"{SURNAME}\",\"username\":\"{USERNAME}\",\"cell_num\":\"{CELL_NUMBER}\",\"email\":\"{EMAIL}\"}";
         String usersJSONResult = "";
         String JSONRow = "";
@@ -453,11 +454,11 @@ public class SystemAdministratorDataProvider {
         with the attributes of compentencies associated to maintainer.
      */
 
-    public String visualizeMaintainerCompetencies(DbConnection dbc, int id_user) {
+    public String visualizeMaintainerCompetencies(int id_user) {
         String sitesJSONFormat = "{\"id_competency\":\"{ID_COMPETENCY}\",\"name_competency\":\"{NAME_COMPETENCY}\",\"assigned\":\"{ASSIGNED}\"}";
         String sitesJSONResult = "";
         String JSONRow = "";
-        this.con = dbc.connect();
+        this.con = db.connect();
         HashMap<Integer, Integer> assigned_map = new HashMap<Integer, Integer>();
         try {
             Statement stmt = this.con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -506,13 +507,13 @@ public class SystemAdministratorDataProvider {
        and return a message in a JSON Format that reports the operation result.
      */
 
-    public String assignMaintainerCompetences(DbConnection dbc, int id_user, int num_competencies,
+    public String assignMaintainerCompetences(int id_user, int num_competencies,
                                              String id_competencies, String checks) {
 
         String responseJson = "[{\"err_code\":\"{ERR_CODE}\",\"msg\":\"{MSG}\"}]";
         String[] checks_array = checks.split("\\,", -1);
         String[] id_competencies_array = id_competencies.split("\\,", -1);
-        this.con = dbc.connect();
+        this.con = db.connect();
         String query = "";
         try {
             Statement stmt = this.con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -544,7 +545,7 @@ public class SystemAdministratorDataProvider {
         Return a String in a JSON Format with the attributes of the notes.
      */
 
-    public String visualizeNotes(DbConnection db){
+    public String visualizeNotes(){
         String notesJSONFormat = "{\"id_note\":\"{ID_NOTE}\",\"description\":\"{DESCRIPTION}\",\"id_activity\":\"{ID_ACTIVITY}\",\"id_site\":\"{ID_SITE}\"}";
         String notesJSONResult = "";
         String JSONRow = "";
@@ -591,7 +592,7 @@ public class SystemAdministratorDataProvider {
         that specific note.
      */
 
-    public String visualizeNote(DbConnection db, int id_note){
+    public String visualizeNote( int id_note){
         String notesJSONFormat = "{\"id_note\":\"{ID_NOTE}\",\"description\":\"{DESCRIPTION}\"}";
         String notesJSONResult = "";
         String JSONRow = "";
@@ -636,7 +637,7 @@ public class SystemAdministratorDataProvider {
        return a message in a JSON Format that reports the operation result.
      */
 
-    public String createNoteActivity(DbConnection db, String description, int id_activity){
+    public String createNoteActivity( String description, int id_activity){
 
         this.con = db.connect();
         String responseJson = "[{\"err_code\":\"{ERR_CODE}\",\"msg\":\"{MSG}\"}]";
@@ -668,7 +669,7 @@ public class SystemAdministratorDataProvider {
        return a message in a JSON Format that reports the operation result.
      */
 
-    public String createNoteSite(DbConnection db, String description, int id_site){
+    public String createNoteSite( String description, int id_site){
 
         this.con = db.connect();
         String responseJson = "[{\"err_code\":\"{ERR_CODE}\",\"msg\":\"{MSG}\"}]";
@@ -702,7 +703,7 @@ public class SystemAdministratorDataProvider {
      */
 
 
-    public String modifyNote(DbConnection db, int idNote, String description){
+    public String modifyNote( int idNote, String description){
 
         this.con = db.connect();
         String responseJson = "[{\"err_code\":\"{ERR_CODE}\",\"msg\":\"{MSG}\"}]";
@@ -735,7 +736,7 @@ public class SystemAdministratorDataProvider {
        JSON Format that reports the operation result.
      */
 
-    public String deleteNote(DbConnection db, int id_note){
+    public String deleteNote( int id_note){
 
         this.con = db.connect();
         String responseJson = "[{\"err_code\":\"{ERR_CODE}\",\"msg\":\"{MSG}\"}]";
@@ -767,7 +768,7 @@ public class SystemAdministratorDataProvider {
         Return a String in a JSON Format with the attributes of the sites.
      */
 
-    public String visualizeSite(DbConnection db){
+    public String visualizeSite(){
 
         String JSONFormat = "{\"id_site\":\"{ID_SITE}\"}";
         String JSONResult = "";
@@ -808,7 +809,7 @@ public class SystemAdministratorDataProvider {
         Return a String in a JSON Format with the attributes of the activity.
      */
 
-    public String visualizeActivity(DbConnection db){
+    public String visualizeActivity(){
 
         String JSONFormat = "{\"id_activity\":\"{ID_ACTIVITY}\"}";
         String JSONResult = "";
